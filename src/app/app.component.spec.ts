@@ -32,4 +32,8 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('ver-15 app is running!');
   });
+  it('should fail', () => {
+
+    expect(true).toBe(false);
+  });
 });
