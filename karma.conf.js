@@ -8,10 +8,9 @@ module.exports = function (config) {
       plugins: [
         require('karma-jasmine'),
         require('karma-chrome-launcher'),
-        require('karma-remap-istanbul'),
         require('karma-xml-reporter'),
         require('karma-junit-reporter'),
-        require('angular-cli/plugins/karma')
+        require('@angular-devkit/build-angular/plugins/karma')
       ],
       files: [
         { pattern: './src/test.ts', watched: false }
