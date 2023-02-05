@@ -47,13 +47,13 @@ module.exports = function (config) {
             require('karma-junit-reporter'),
             require('@angular-devkit/build-angular/plugins/karma')
         ],
-        reporters: ['junit'],
+        reporters: ['progress', 'junit'],
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: true,
         browsers: ['Chrome'],
-        singleRun: false,
+        singleRun: true,
         restartOnFileChange: true,
         junitReporter: {
             outputDir: './test/',
