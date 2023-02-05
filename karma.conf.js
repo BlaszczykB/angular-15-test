@@ -56,7 +56,7 @@ module.exports = function(config) {
       singleRun: false,
       restartOnFileChange: true,
       junitReporter: {
-        suite: 'App',
+        suite: 'Application-root',
         outputDir: './test/',
         outputFile: 'junit.xml',
         useBrowserName: false,
