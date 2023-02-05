@@ -15,6 +15,8 @@ export class AppComponent {
    */
   constructor() { }
 
+  e: SDSD = {}
+
 
   // getAll<T>(url: string, size: number = 500, filters?: any): Observable<T[]> {
   //   return this.getAllpriv(url, size, filters ?? {}, 0, [])
