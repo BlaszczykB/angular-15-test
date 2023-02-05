@@ -59,6 +59,9 @@ module.exports = function(config) {
         outputDir: './test/',
         outputFile: 'junit.xml',
         useBrowserName: false,
+        classNameFormatter: function(browser, result) {
+            return result.suite[0];
+        },
         
       }
     });
