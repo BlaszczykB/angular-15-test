@@ -56,12 +56,10 @@ module.exports = function(config) {
       singleRun: false,
       restartOnFileChange: true,
       junitReporter: {
+        suite: 'App',
         outputDir: './test/',
         outputFile: 'junit.xml',
         useBrowserName: false,
-        classNameFormatter: function(browser, result) {
-            return result.suite[0];
-        },
         
       }
     });
