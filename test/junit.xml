@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 109.0.0.0 (Windows 10)" package="" timestamp="2023-02-05T15:27:33" id="0" hostname="DESKTOP-DG68HII" tests="3" errors="0" failures="0" time="0.026">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"/>
+  </properties>
+  <testcase name="AppComponent should create the app" time="0.022" classname="AppComponent"/>
+  <testcase name="AppComponent should have as title 'ver-15'" time="0.002" classname="AppComponent"/>
+  <testcase name="AppComponent should render title" time="0.002" classname="AppComponent"/>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
