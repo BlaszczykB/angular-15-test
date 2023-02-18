@@ -23,4 +23,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Testing
-        run: tests succeed!
+        run: echo tests succeed!
