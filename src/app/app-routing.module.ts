@@ -11,11 +11,15 @@ const routes: Routes = [
   {
     component: SecondaryPageComponent,
     path: 'secondary-page',
+  },
+  {
+    path: 'lazy',
+    loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule)
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
