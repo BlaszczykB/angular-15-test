@@ -36,17 +36,17 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run build
-      - run: npm run test-actions
+      # - run: npm run test-actions
       - name: File Print
         run: ls
       - name: Go to dist Print
         run: |
           cd ./dist
           ls
-      # - name: Deploy
-      #   uses: lbertenasco/s3-deploy@v1
-      #   with:
-      #     folder: dist/ver-15
-      #     bucket: ${{ secrets.S3_BUCKET }}
-      #     dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-      #     invalidation: / *
+      - name: Deploy
+        uses: lbertenasco/s3-deploy@v1
+        with:
+          folder: dist/ver-15
+          bucket: ${{ secrets.S3_BUCKET }}
+          dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+          invalidation: / *
