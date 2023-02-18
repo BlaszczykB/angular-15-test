@@ -39,10 +39,14 @@ jobs:
       - run: npm run test-actions
       - name: File Print
         run: ls
+      - name: Go to dist Print
+        run: cd ./dist
+      - name: Dist Print
+        run: ls
       # - name: Deploy
       #   uses: lbertenasco/s3-deploy@v1
       #   with:
-      #     folder: build
+      #     folder: dist/ver-15
       #     bucket: ${{ secrets.S3_BUCKET }}
       #     dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
       #     invalidation: / *
