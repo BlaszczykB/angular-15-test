@@ -40,9 +40,9 @@ jobs:
       - name: File Print
         run: ls
       - name: Go to dist Print
-        run: cd ./dist
-      - name: Dist Print
-        run: ls
+        run: |
+          cd ./dist
+          ls
       # - name: Deploy
       #   uses: lbertenasco/s3-deploy@v1
       #   with:
