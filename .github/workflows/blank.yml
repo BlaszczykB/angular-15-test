@@ -21,10 +21,10 @@ jobs:
           echo test, and deploy your project.
   build-test:
     runs-on: ubuntu-latest
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    # env:
+    #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #   AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     strategy:
       matrix:
         node-version: [16.x]
@@ -43,10 +43,11 @@ jobs:
         run: |
           cd ./dist
           ls
-      - name: Deploy
-        uses: lbertenasco/s3-deploy@v1
+      - uses: shallwefootball/s3-upload-action@master
+        name: Upload S3
+        id: S3
         with:
-          folder: dist/ver-15
-          bucket: ${{ secrets.S3_BUCKET }}
-          dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-          invalidation: / *
+          aws_key_id: ${{ secrets.AWS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          aws_bucket: ${{ secrets.AWS_BUCKET }}
+          source_dir: 'static'
