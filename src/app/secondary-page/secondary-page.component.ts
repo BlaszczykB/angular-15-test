@@ -9,6 +9,6 @@ import { adder } from '../utils/utils';
 export class SecondaryPageComponent implements OnInit {
   ngOnInit(): void {
     const str = 'Secondary commponent sts'
-    console.log(adder())
+    console.log(str, adder())
   }
 }
