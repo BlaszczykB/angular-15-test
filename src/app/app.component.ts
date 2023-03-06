@@ -13,26 +13,38 @@ export class AppComponent {
   /**
    *
    */
-  constructor() { }
+  constructor(private http: HttpClient) {
+    this.getGeneric(this.getOne, {})
+  }
 
 
 
-  // getAll<T>(url: string, size: number = 500, filters?: any): Observable<T[]> {
-  //   return this.getAllpriv(url, size, filters ?? {}, 0, [])
-  // }
+  getOne(): Observable<string[]> {
+    return of(['urltest'])
+  }
 
-  // private getAllpriv<T>(url: string, size: number = 500, filters?: any, page: number = 0, content: T[] = []): Observable<T[]> {
+  getGeneric<T>(f: (filters: any)=> Observable<any>, filters: any): Observable<any> {
+    return f(filters)
+  }
 
-  //   const params = new HttpParams()
-  //   return this.http.get(url, { params }).pipe(
-  //     switchMap((res: any) => {
-  //       if (res.page.number <= res.page.totalPages) {
-  //         return this.getAllpriv(url, size, filters, res.page.number, res.content)
-  //       } else {
-  //         return concat(of(content, res.content))
-  //       }
-  //     }))
-  // }
+
+
+  getAll<T>(url: string, size: number = 500, filters?: any): Observable<T[]> {
+    return this.getAllpriv(url, size, filters ?? {}, 0, [])
+  }
+
+  private getAllpriv<T>(url: string, size: number = 500, filters?: any, page: number = 0, content: T[] = []): Observable<T[]> {
+
+    const params = new HttpParams()
+    return this.http.get(url, { params }).pipe(
+      switchMap((res: any) => {
+        if (res.page.number <= res.page.totalPages) {
+          return this.getAllpriv(url, size, filters, res.page.number, res.content)
+        } else {
+          return concat(of(content, res.content))
+        }
+      }))
+  }
 
 
   // private getAllParallel<T>(url: string, size: number = 500, filters?: any, page: number = 0, content: T[] = []): Observable<T[]> {
@@ -48,7 +60,7 @@ export class AppComponent {
   //         }
 
   //         return concat(res.content, forkJoin(requests$).pipe(map((res: any) => res.content)))
-          
+
   //       } else {
   //         return concat(of(content, res.content))
   //       }
