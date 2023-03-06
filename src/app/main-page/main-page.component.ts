@@ -9,7 +9,7 @@ import { adder } from '../utils/utils';
 export class MainPageComponent implements OnInit {
   ngOnInit(): void {
     const str = 'Main commponent sts'
-    console.log(adder())
+    console.log(str, adder())
   }
 
 }
