@@ -20,7 +20,7 @@ export class AppComponent {
 
 
   getOne(): Observable<string[]> {
-    return of(['urltest'])
+    return of(['urltests'])
   }
 
   getGeneric<T>(f: (filters: any)=> Observable<any>, filters: any): Observable<any> {
